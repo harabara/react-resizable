@@ -132,25 +132,30 @@ export default class Resizable extends React.Component {
    * @return {Function}           Handler function.
    */
   resizeHandler(handlerName: string): Function {
-    return (e, {node, deltaX, deltaY}: DragCallbackData) => {
-      let width = this.state.width + deltaX, height = this.state.height + deltaY;
+    return (e, {node}: DragCallbackData) => {
+
+      let newDeltaY = (e.clientY - this.state.clientY) || 0;
+      
+      let width = this.state.width, height = this.state.height - newDeltaY;
 
       // Early return if no change
       let widthChanged = width !== this.state.width, heightChanged = height !== this.state.height;
       if (handlerName === 'onResize' && !widthChanged && !heightChanged) return;
 
-      [width, height] = this.runConstraints(width, height);
+      // [width, height] = this.runConstraints(width, height);
 
       // Set the appropriate state for this handler.
       let newState = {};
       if (handlerName === 'onResizeStart') {
         newState.resizing = true;
+        newState.clientY = e.clientY;
       } else if (handlerName === 'onResizeStop') {
         newState.resizing = false;
         newState.slackW = newState.slackH = 0;
       } else {
         // Early return if no change after constraints
         if (width === this.state.width && height === this.state.height) return;
+        newState.clientY = e.clientY;
         newState.width = width;
         newState.height = height;
       }

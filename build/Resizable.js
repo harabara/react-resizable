@@ -136,32 +136,43 @@ var Resizable = function (_React$Component) {
 
     return function (e, _ref) {
       var node = _ref.node;
+      var deltaX = _ref.deltaX;
+      var deltaY = _ref.deltaY;
 
 
-      var newDeltaY = e.clientY - _this2.state.clientY || 0;
+      var clientY = e.touches && e.touches.length ? e.touches[0].clientY : e.clientY;
 
-      var width = _this2.state.width,
-          height = _this2.state.height - newDeltaY;
+      if (_this2.props.resizeToNorth) {
+        var deltaYNorth = clientY - _this2.state.clientY || 0;
+        var width = _this2.state.width + deltaX,
+            height = _this2.state.height - deltaYNorth;
+      } else {
+        width = _this2.state.width + deltaX, height = _this2.state.height + deltaY;
+      }
+      console.log(width);
 
       // Early return if no change
       var widthChanged = width !== _this2.state.width,
           heightChanged = height !== _this2.state.height;
       if (handlerName === 'onResize' && !widthChanged && !heightChanged) return;
 
-      // [width, height] = this.runConstraints(width, height);
-
       // Set the appropriate state for this handler.
+
+      var _runConstraints = _this2.runConstraints(width, height);
+
+      width = _runConstraints[0];
+      height = _runConstraints[1];
       var newState = {};
       if (handlerName === 'onResizeStart') {
         newState.resizing = true;
-        newState.clientY = e.clientY;
+        newState.clientY = clientY;
       } else if (handlerName === 'onResizeStop') {
         newState.resizing = false;
         newState.slackW = newState.slackH = 0;
       } else {
         // Early return if no change after constraints
         if (width === _this2.state.width && height === _this2.state.height) return;
-        newState.clientY = e.clientY;
+        newState.clientY = clientY;
         newState.width = width;
         newState.height = height;
       }
@@ -196,7 +207,7 @@ var Resizable = function (_React$Component) {
           onStart: this.resizeHandler('onResizeStart'),
           onDrag: this.resizeHandler('onResize')
         }),
-        _react2.default.createElement('span', { className: 'react-resizable-handle' })
+        _react2.default.createElement('span', { className: "react-resizable-handle" + (p.resizeToNorth ? " north" : "") })
       )]
     }));
   };

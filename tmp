@@ -1,0 +1,500 @@
+   13  rm bin -r
+   14  sudo mv  include/* /usr/include/
+   15  sudo cp -r  include/* /usr/include/
+   16  sudo cp -r  lib/* /usr/lib
+   17  sudo cp -r  lib64/* /usr/lib64
+   18  sudo cp -r  share/* /usr/share
+   19  ll /usr
+   20  ll
+   21  sudo cp -r  lib64/* /usr/lib
+   22  ll /usr/lib64
+   23  cd holdem
+   24  npm start
+   25  nvm -v
+   26  nvm --version
+   27  nvm current
+   28  nvm use 5
+   29  npm start
+   30  npm start
+   31  npm start
+   32  npm start
+   33  npm start
+   34  npm i isomorphic-fetch -S
+   35  npm start
+   36  npm build
+   37  npm start build
+   38  npm run build
+   39  npm run build
+   40  npm run build
+   41  npm run build
+   42  npm run build
+   43  npm run build
+   44  npm start
+   45  npm run build
+   46  npm start
+   47  npm start
+   48  npm start
+   49  npm start
+   50  npm i redux-thunk -S
+   51  npm start
+   52  npm start
+   53  npm run build
+   54  npm start
+   55  npm start
+   56  npm start build
+   57  npm start build
+   58  npm start build
+   59  npm run build
+   60  npm start
+   61  npm run build
+   62  npm run build
+   63  npm run build
+   64  npm run build
+   65  npm run build
+   66  npm run build
+   67  npm run build
+   68  npm run build
+   69  npm run build
+   70  npm run
+   71  npm start
+   72  npm run build
+   73  npm run build
+   74  npm run build
+   75  npm start
+   76  ssh torn
+   77  cd /projects/torncity/static/casino/poker
+   78  subl3 .
+   79  cd holdem
+   80  nom start
+   81  npm start
+   82  nvm current
+   83  nvm default 5
+   84  nvm alias
+   85  nvm alias default v5
+   86  nvm alias
+   87  nvm current
+   88  nvm use 5
+   89  nvm current
+   90  ssh torn
+   91  ssh torn
+   92  cd holdem
+   93  npm i -D jquery
+   94  git clone https://github.com/centrifugal/centrifugo.git
+   95  subl3 .
+   96  cd centrifugo/
+   97  subl3 .
+   98  cd ~
+   99  git clone https://aur.archlinux.org/teamviewer.git
+  100  cd teamviewer/
+  101  ll
+  102  makepkg -sri
+  103  sudo makepkg -sri
+  104  cat history > ttt
+  105   history > ttt
+  106  subl ttt
+  107  subl3 ttt
+  108  makepkg -sri
+  109  cd ..
+  110  tar -xzvf teamviewer_11.0.57095_i386.tar.xz 
+  111  tar xzvf teamviewer_11.0.57095_i386.tar.xz 
+  112  tar xvf teamviewer_11.0.57095_i386.tar.xz 
+  113  ll
+  114  rm teamviewer/ -rf
+  115  tar xvf teamviewer_11.0.57095_i386.tar.xz 
+  116  cd teamviewer
+  117  ll
+  118  ./tv-setup 
+  119  ./teamviewer 
+  120  tv-setup install
+  121  ./tv-setup install
+  122  sudo ./tv-setup install
+  123  pacman -S lib32-libjpeg
+  124  sudo pacman -S lib32-libjpeg
+  125  sudo ./tv-setup install
+  126  [An
+  127  sudo pacman -S lib32-libjpng
+  128  sudo pacman -S lib32-libpng
+  129  sudo ./tv-setup install
+  130  n
+  131  cd /usr/lib32
+  132  ll
+  133  ln -s libjpeg.so libjpeg.so.62
+  134  sudo ln -s libjpeg.so libjpeg.so.62
+  135  cd ~/teamviewer
+  136  sudo ./tv-setup install
+  137  cd /usr/lib
+  138  grep libpng
+  139  ll | grep libpng
+  140  cd ~
+  141  git clone https://aur.archlinux.org/libpng12.git
+  142  cd libpng12/
+  143  sudo makepkg -sri
+  144  makepkg -sri
+  145  cd ../teamviewer
+  146  tv-setup install
+  147  ./tv-setup install
+  148  sudo ./tv-setup install
+  149  cd ../libpng12/
+  150  ll
+  151  ll /usr/lib/ | grep libpng
+  152  cd /usr/lib
+  153  ll | grep libpng
+  154  ln -s libpng12.so.0 libpng12.so.0.56.0
+  155  sudo ln -s libpng12.so.0 libpng12.so.0.56.0
+  156  ln -s libjpeg.so libjpeg.so.62
+  157  sudo ln -s libpng12.so.0.56.0 libpng12.so.0
+  158  cd ~/teamviewer
+  159  sudo tv-setup install
+  160  sudo ./tv-setup install
+  161  ll /usr/lib | grep libpng12
+  162  cd ..
+  163  git clone https://aur.archlinux.org/lib32-libpng12.git
+  164  cd lib32-libpng12/
+  165  makepkg -sri
+  166  cd ../teamviewer
+  167  sudo tv-setup install
+  168  sudo ./tv-setup install
+  169  sudo pacman -S lib32-libxinerama
+  170  sudo ./tv-setup install
+  171  sudo ./tv-setup install
+  172  sudo echo 127.0.0.1    dev-www.torn.com    localhost > /etc/host
+  173  sudo subl3 /etc/host
+  174  cat /etc/host
+  175  sudo subl3 /etc/host
+  176  rm /etc/host
+  177  sudo rm /etc/host
+  178  sudo subl3 /etc/hosts
+  179  ll /etc/ | grep rc
+  180  service network restart
+  181  serviced network restart
+  182  pacman -S nginx
+  183  sudo pacman -S nginx
+  184  sudo touch /etc/nginx/nginx.conf
+  185  sudo subl3 /etc/nginx/nginx.conf 
+  186  nginx 
+  187  sudo nginx 
+  188  cd ..
+  189  nginx -s reload
+  190  sudo nginx -s reload
+  191  sudo nginx -s reload
+  192  ssh torn
+  193  ssh torn
+  194  ssh torn
+  195  rm /home/harabara/Desktop/inrement.js
+  196  sudo nginx -s reload
+  197  sudo nginx -s reload
+  198  sudo nginx -s reload
+  199  sudo nginx -s reload
+  200  sudo nginx -s reload
+  201  sudo nginx -s reload
+  202  sudo nginx -s reload
+  203  sudo nginx -s reload
+  204  sudo nginx -s reload
+  205  sudo nginx -s reload
+  206  sudo nginx -s reload
+  207  cd /etc/nginx/
+  208  ll
+  209  ll
+  210  ll
+  211  sudo nginx -s reload
+  212  ll
+  213  whereis nginx
+  214  ll /usr/bin/
+  215  ll /usr/bin/ | grep nginx
+  216  ll /usr/bin/ | grep logs
+  217  whereis nginx
+  218  sudo nginx -s reload
+  219  cd ~/Desktop/
+  220  node inrement.js 
+  221  node inrement.js 
+  222  node inrement.js 
+  223  node inrement.js 
+  224  node inrement.js 
+  225  ll
+  226  ll | grep logs
+  227  ll
+  228  nginx -V
+  229  sudo nginx -s reload
+  230  sudo nginx -s reload
+  231  sudo nginx -s reload
+  232  sudo nginx -s reload
+  233  sudo nginx -s reload
+  234  sudo nginx -s reload
+  235  sudo nginx -s reload
+  236  ssh torn
+  237  sudo subl3 /etc/nginx/nginx.conf 
+  238  sudo nginx -s reload
+  239  sudo nginx -s reload
+  240  sudo nginx -s reload
+  241  sudo nginx -s reload
+  242  sudo nginx -s reload
+  243  sudo nginx -s reload
+  244  sudo nginx -s reload
+  245  cd holdem
+  246  npm uninstall -D jquery
+  247  ll
+  248  subl3 .
+  249  subl3 .
+  250  pacman -S yaourt
+  251  sudo pacman -S yaourt
+  252  subl3 .
+  253  ssh torn
+  254  ssh torn
+  255  ssh torn
+  256  cd .ssh/
+  257  ll
+  258  car config 
+  259  cat config 
+  260  ps aux | chrome
+  261  ps aux | grep chrome
+  262  top
+  263  kill -9 9629
+  264  top
+  265  kill −9 2194
+  266  kill −9 2194
+  267  kill −9 24236
+  268  kill −9 4236
+  269  top
+  270  cd /projects/
+  271  git clone https://github.com/harabara/react-resizable.git
+  272  cd react-resizable/
+  273  subl3 .
+  274  nmp i
+  275  npm i
+  276  npm run dev
+  277  npm run dev
+  278  npm run dev
+  279  npm run dev
+  280  npm run dev
+  281  npm run dev
+  282  cd 
+  283  git clone https://github.com/harabara/react-resizable/
+  284  rr react-resizable/
+  285  rf react-resizable/
+  286  ll
+  287  ssh torn
+  288  ssh torn
+  289  cd /projects/react-resizable/
+  290  git remote -v
+  291  ll
+  292  git remote add upstraem https://github.com/harabara/react-resizable
+  293  ll
+  294  git remote -v
+  295  git diff --name-only
+  296  git add css/styles.css 
+  297  git add lib/Resizable.jsx 
+  298  git add test/TestLayout.jsx 
+  299  git add -m "attempt to make box draggable to North"
+  300  git commit  -m "attempt to make box draggable to North"
+  301  git config --global user.email harabara@gmail.com
+  302  git config --global user.name harabara
+  303  git commit  -m "attempt to make box draggable to North"
+  304  git commit  -m "attempt to make box draggable to North" -n
+  305  git push git push origin master
+  306  clear
+  307  git push git push origin master
+  308  git show-ref
+  309  git push origin master
+  310  git push origin master
+  311  ssh-keygen
+  312  ssh-keygen -t rsa -b 409 -C "harabara@gmail.com"
+  313  ssh-keygen -t rsa -b 4096 -C "harabara@gmail.com"
+  314  eval "$(ssh-agent -s)"
+  315  ll 
+  316  cat github
+  317  mv github ~/.ssh
+  318  ll
+  319  mv github.pub ~/.ssh
+  320  ssh-add ~/.ssh/github
+  321  cat ~/.ssh/github.pub 
+  322  git push origin master
+  323  build
+  324  ./build
+  325  ll
+  326  ./build.sh 
+  327  git diff -name-only
+  328  git diff --name-only
+  329  cd build
+  330  ll
+  331  cd 
+  332  cd /projects/react-resizable/
+  333  git diff --name-only
+  334  git add build/
+  335  git commit -m "add build folder to make it installable with npm"
+  336  git commit -m "add build folder to make it installable with npm" -n
+  337  git push origin master
+  338  cd Desktop/
+  339  node test.js 
+  340  node test.js 
+  341  node test.js 
+  342  node test.js 
+  343  subl3 .
+  344  npm run dev
+  345  cd /projects/react-resizable/
+  346  npm run dev
+  347  npm run dev
+  348  npm run dev
+  349  npm run build
+  350  cp build/ /projects/torncity/static/casino/holdem/node_modules/react-resizable/
+  351  cp build/* /projects/torncity/static/casino/holdem/node_modules/react-resizable/build/
+  352  npm run build
+  353  cp build/* /projects/torncity/static/casino/holdem/node_modules/react-resizable/build/
+  354  npm run build
+  355  cp build/* /projects/torncity/static/casino/holdem/node_modules/react-resizable/build/
+  356  npm run dev
+  357  npm run dev
+  358  npm run dev
+  359  npm run dev
+  360  npm run build
+  361  npm run dev
+  362  npm run dev
+  363  npm run dev
+  364  cp build/* /projects/torncity/static/casino/holdem/node_modules/react-resizable/build/
+  365  npm run build
+  366  cp build/* /projects/torncity/static/casino/holdem/node_modules/react-resizable/build/
+  367  cd /projects/react-resizable/
+  368  sudo wifi-menu
+  369  pacman -S virtualbox
+  370  sudo pacman -S virtualbox
+  371  virtualbox 
+  372  sudo /sbin/rcvboxdrv setup
+  373  cd holdem
+  374  npm run build
+  375  ssh torn
+  376  npm i react-resizable -S
+  377  npm uninstal react-resizable -S
+  378  npm i https://github.com/STRML/react-resizable -S
+  379  npm uninstall https://github.com/STRML/react-resizable -S
+  380  npm i github.com/harabara/react-resizable/ -S
+  381  npm uninstall https://github.com/STRML/react-resizable -S
+  382  clear
+  383  npm uninstall https://github.com/STRML/react-resizable -S
+  384  npm uninstall https://github.com/STRML/react-resizable
+  385  npm uninstall react-resizable -S
+  386  npm install -S github.com/harabara/react-resizable/
+  387  npm install -S https://github.com/harabara/react-resizable/
+  388  npm install -S https://github.com/harabara/react-resizable/
+  389  npm install https://github.com/harabara/react-resizable/ -S
+  390  npm install git://github.com/harabara/react-resizable/ -S
+  391  npm uninstall react-resizable -S
+  392  npm install git://github.com/harabara/react-resizable/ -S
+  393  npm run build
+  394  npm i redux-responsive -S
+  395  cd 
+  396  cd Des
+  397  cd Desktop/
+  398  node test.js 
+  399  node test.js 
+  400  node test.js 
+  401  node test.js 
+  402  node test.js 
+  403  node test.js 
+  404  node test.js 
+  405  node test.js 
+  406  nvm current
+  407  nvm current
+  408  node test.js 
+  409  node test.js 
+  410  ssh torn
+  411  ssh torn
+  412  cd /projects/react-resizable/
+  413  npm build
+  414  npm run build
+  415  cp ./build/* /projects/torncity/static/casino/holdem/node_modules/react-resizable/build/
+  416  cp ./build/* /projects/torncity/static/casino/holdem/node_modules/react-resizable/build/
+  417  npm run build
+  418  cp ./build/* /projects/torncity/static/casino/holdem/node_modules/react-resizable/build/
+  419  subl3 .
+  420  npm run build
+  421  cp ./build/* /projects/torncity/static/casino/holdem/node_modules/react-resizable/build/
+  422  sudo wifi-menu
+  423  sudo wifi-menu
+  424  sudo wifi-menu
+  425  ll /projects/torncity/static/casino/holdem/node_modules/react-resizable/
+  426  cd /projects/torncity/static/casino/holdem/node_modules/react-resizable/
+  427  ll build/
+  428  ll build/
+  429  cd 
+  430  cd holdem
+  431  npm run build
+  432  npm run build
+  433  npm run build
+  434  npm run build
+  435  cat /client/components/Buttons/index.js
+  436  ll /client/components/Buttons/
+  437  ll /client/components/
+  438  ll ./client/components/
+  439  cat ./client/components/Buttons/index.js
+  440  ll ./client/components/Buttons/
+  441  ll ./client/components/Chat/
+  442  subl3 .
+  443  subl3 .
+  444  ll
+  445  cd /projects/react-resizable/
+  446  npm run build
+  447  cp build/* /projects/torncity/static/casino/holdem/node_modules/react-resizable/build/
+  448  cp build/* /projects/torncity/static/casino/holdem/node_modules/react-resizable/build/
+  449  npm run build
+  450  cp build/* /projects/torncity/static/casino/holdem/node_modules/react-resizable/build/
+  451  npm run build
+  452  cp build/* /projects/torncity/static/casino/holdem/node_modules/react-resizable/build/
+  453  ssh torn
+  454  sudo wifi-menu
+  455  ssh torn
+  456  ssh torn
+  457  pacman -S libdvdread
+  458  sudo pacman -S libdvdread
+  459  wodim --devices
+  460  sudo pacman -S wodim
+  461  sudo pacman -S cdrecord
+  462  lsblk
+  463  dmesg
+  464  dmesg | egrep -i --color 'cdrom|dvd|cd/rw|writer'
+  465  ll /proc/sys/dev
+  466  ll /proc/sys/dev/cdrom/
+  467  cat /proc/sys/dev/cdrom/info 
+  468  dmesg | egrep -i --color 'cdrom|dvd|cd/rw|writer'
+  469  dmesg | egrep -i --color 'cd|dvd|cd/rw|writer'
+  470  cd-drive 
+  471  lsblk
+  472  lsscsi
+  473  dmesg |egrep -i ‘cdrom|dvd|cd/rw|writer’
+  474  dmesg | egrep -i ‘cdrom|dvd|cd/rw|writer’
+  475  dmesg | grep -i ‘cdrom|dvd|cd/rw|writer’
+  476  dmesg 
+  477  dmesg | grep -i ‘cdrom|dvd|cd|rw|writer’
+  478  dmesg | grep -i 'cdrom|dvd|cd|rw|writer'
+  479  dmesg | egrep -i 'cdrom|dvd|cd|rw|writer'
+  480  dmesg | egrep -i 'cdrom|dvd|cd/rw|writer'
+  481  cat /proc/sys/dev/cdrom/info
+  482  eject -t
+  483  mount -t iso9660 /dev/dvd-rw /media/
+  484  sudo mount -t iso9660 /dev/dvd-rw /media/
+  485  sudo mount -t iso9660 /dev/dvd-rw /mnt/
+  486  sudo mount -t iso9660 /dev/sr0 /mnt/
+  487  lsblk
+  488  ll /
+  489  ll mnt
+  490  ll /mnt
+  491  sudo mount -t iso9660 /dev/cdrom /mnt/cdrom
+  492  sudo mkdir /mnt/cdrom
+  493  sudo mount -t iso9660 /dev/cdrom /mnt/cdrom
+  494  sudo mount -t iso9660 /dev/cdrom /mnt/cdrom
+  495  cd holdem
+  496  npm i react-slider
+  497  npm uninstal react-slider
+  498  npm uninstal react-slider -S
+  499  npm i react-slider -S
+  500  npm uninstal react-slider -S
+  501  cd /projects/react-resizable/
+  502  subl3 .
+  503  npm run dev
+  504  npm run build
+  505  git diff --name-only
+  506  git add *
+  507  git add .
+  508  git diff --name-only
+  509  git commit -m "drag to both, north and south"
+  510  git commit -m "drag to both, north and south" -n
+  511  hystory > tmp
+  512  history > tmp

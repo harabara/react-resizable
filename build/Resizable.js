@@ -149,7 +149,6 @@ var Resizable = function (_React$Component) {
       } else {
         width = _this2.state.width + deltaX, height = _this2.state.height + deltaY;
       }
-      console.log(width);
 
       // Early return if no change
       var widthChanged = width !== _this2.state.width,

@@ -145,7 +145,6 @@ export default class Resizable extends React.Component {
       {
         width = this.state.width + deltaX, height = this.state.height + deltaY;
       }
-      console.log(width)
 
       // Early return if no change
       let widthChanged = width !== this.state.width, heightChanged = height !== this.state.height;

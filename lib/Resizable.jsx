@@ -8,6 +8,7 @@ type Position = {
 };
 type State = {
   resizing: boolean,
+  clientY: number,
   width: number, height: number,
   slackW: number, slackH: number
 };
@@ -133,10 +134,10 @@ export default class Resizable extends React.Component {
    */
   resizeHandler(handlerName: string): Function {
     return (e, {node, deltaX, deltaY}: DragCallbackData) => {
-      
+
       let clientY = (e.touches && e.touches.length) ? e.touches[0].clientY : e.clientY;
 
-      if (this.props.resizeToNorth) 
+      if (this.props.resizeToNorth)
       {
         let deltaYNorth = (clientY - this.state.clientY) || 0;
         var width = this.state.width + deltaX, height = this.state.height - deltaYNorth;
@@ -176,7 +177,7 @@ export default class Resizable extends React.Component {
   }
 
   render(): React.Element {
-    let {width, height, ...p} = this.props;
+    let {width, height, resizeToNorth, ...p} = this.props;
     let className = p.className ?
       `${p.className} react-resizable`:
       'react-resizable';
@@ -198,7 +199,7 @@ export default class Resizable extends React.Component {
           onStart={this.resizeHandler('onResizeStart')}
           onDrag={this.resizeHandler('onResize')}
           >
-          <span className={"react-resizable-handle" + ((p.resizeToNorth) ? " north" : "")} />
+          <span className={"react-resizable-handle" + ((resizeToNorth) ? " north" : "")} />
         </DraggableCore>
       ]
     });

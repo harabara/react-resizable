@@ -1,7 +1,7 @@
 module.exports = {
     context: __dirname,
     entry: [
-      "webpack-dev-server/client?http://localhost:4003",
+      "webpack-dev-server/client?http://localhost:4002",
       "webpack/hot/dev-server",
       "./test/test.js",
     ],

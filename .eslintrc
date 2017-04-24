@@ -30,6 +30,8 @@
   "globals": {
     // For Flow
     "ReactElement",
-    "ReactClass"
+    "ReactClass",
+    "SyntheticEvent",
+    "SyntheticTouchEvent"
   }
 }

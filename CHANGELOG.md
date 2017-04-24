@@ -1,5 +1,36 @@
 # Changelog
 
+### 1.6.0 (Jan 23, 2017)
+
+- Feature: Allow restricting by axis. (#40, thanks @dnissley-al)
+
+### 1.5.0 (Jan 23, 2017)
+
+- Bugfix: Persist SyntheticEvents when needed (#45, #46)
+- Feature: Add componentWillReceiveProps to `<ResizableBox>` (#44, thanks @JoaoMosmann)
+
+### 1.4.6 (Dec 30, 2016)
+
+- Removed unused ref from `<Resizable>`.
+- Added development lockfile.
+
+### 1.4.5 (Sep 30, 2016)
+
+- Fix bad publish
+
+### 1.4.4 (Sep 30, 2016)
+
+- Bugfix: Minor flow errors
+
+### 1.4.3 (Sep 27, 2016)
+
+- Bugfix: Don't pass `onResize` in `<ResizableBox>`.
+- Bugfix: Fix new Flow errors (type parameters no longer optional).
+
+### 1.4.2 (July 1, 2016)
+
+- Bugfix: Don't pass unknown props to underlying DOM element. Fixes React 15.2.0 warnings.
+
 ### 1.4.1 (May 23, 2016)
 
 - Bugfix: Resizable handle should have a `key` when injected. Fixes React warnings on custom components.

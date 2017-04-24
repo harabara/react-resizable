@@ -3,6 +3,7 @@ import {default as React, PropTypes} from 'react';
 import {DraggableCore} from 'react-draggable';
 import cloneElement from './cloneElement';
 
+type Axis = 'both' | 'x' | 'y' | 'none';
 type Position = {
 
 };
@@ -17,6 +18,29 @@ type DragCallbackData = {
   x: number, y: number,
   deltaX: number, deltaY: number,
   lastX: number, lastY: number
+};
+type ResizeCallbackData = {
+  node: HTMLElement,
+  size: {width: number, height: number}
+};
+type EventWithClientY = SyntheticEvent & MouseEvent & SyntheticTouchEvent & {
+  clientY: number
+}
+
+export type Props = {
+  children: React.Element<any>,
+  width: number,
+  height: number,
+  handleSize: [number, number],
+  lockAspectRatio: boolean,
+  axis: Axis,
+  resizeToNorth: boolean,
+  minConstraints: [number, number],
+  maxConstraints: [number, number],
+  onResizeStop?: ?(e: SyntheticEvent, data: ResizeCallbackData) => any,
+  onResizeStart?: ?(e: SyntheticEvent, data: ResizeCallbackData) => any,
+  onResize?: ?(e: SyntheticEvent, data: ResizeCallbackData) => any,
+  draggableOpts?: ?Object
 };
 
 export default class Resizable extends React.Component {
@@ -43,6 +67,13 @@ export default class Resizable extends React.Component {
     // If true, will only allow width/height to move in lockstep
     lockAspectRatio: PropTypes.bool,
 
+    // Restricts resizing to a particular axis (default: 'both')
+    // 'both' - allows resizing by width or height
+    // 'x' - only allows the width to be changed
+    // 'y' - only allows the height to be changed
+    // 'none' - disables resizing altogether
+    axis: PropTypes.oneOf(['both', 'x', 'y', 'none']),
+
     // Min/max size
     minConstraints: PropTypes.arrayOf(PropTypes.number),
     maxConstraints: PropTypes.arrayOf(PropTypes.number),
@@ -55,10 +86,12 @@ export default class Resizable extends React.Component {
     // These will be passed wholesale to react-draggable's DraggableCore
     draggableOpts: PropTypes.object
   };
+  props: Props;
 
   static defaultProps =  {
     handleSize: [20, 20],
     lockAspectRatio: false,
+    axis: 'both',
     minConstraints: [20, 20],
     maxConstraints: [Infinity, Infinity]
   };
@@ -88,7 +121,7 @@ export default class Resizable extends React.Component {
 
   // If you do this, be careful of constraints
   runConstraints(width: number, height: number): [number, number] {
-    let [min, max] = [this.props.minConstraints, this.props.maxConstraints];
+    const [min, max] = [this.props.minConstraints, this.props.maxConstraints];
 
     if (this.props.lockAspectRatio) {
       const ratio = this.state.width / this.state.height;
@@ -98,7 +131,7 @@ export default class Resizable extends React.Component {
 
     if (!min && !max) return [width, height];
 
-    let [oldW, oldH] = [width, height];
+    const [oldW, oldH] = [width, height];
 
     // Add slack to the values used to calculate bound position. This will ensure that if
     // we start removing slack, the element won't react to it right away until it's been
@@ -133,28 +166,31 @@ export default class Resizable extends React.Component {
    * @return {Function}           Handler function.
    */
   resizeHandler(handlerName: string): Function {
-    return (e, {node, deltaX, deltaY}: DragCallbackData) => {
+    return (e: EventWithClientY, {node, deltaX, deltaY}: DragCallbackData) => {
 
       let clientY = (e.touches && e.touches.length) ? e.touches[0].clientY : e.clientY;
 
+      // Axis restrictions
+      const canDragX = !this.props.resizeToNorth && (this.props.axis === 'both' || this.props.axis === 'x');
+      const canDragY = this.props.axis === 'both' || this.props.axis === 'y';
+
       if (this.props.resizeToNorth)
       {
-        let deltaYNorth = (clientY - this.state.clientY) || 0;
-        var width = this.state.width + deltaX, height = this.state.height - deltaYNorth;
-      }
-      else
-      {
-        width = this.state.width + deltaX, height = this.state.height + deltaY;
+        deltaY = -(clientY - this.state.clientY) || 0;
       }
 
+      // Update w/h
+      let width = this.state.width + (canDragX ? deltaX : 0);
+      let height = this.state.height + (canDragY ? deltaY : 0);
+
       // Early return if no change
-      let widthChanged = width !== this.state.width, heightChanged = height !== this.state.height;
+      const widthChanged = width !== this.state.width, heightChanged = height !== this.state.height;
       if (handlerName === 'onResize' && !widthChanged && !heightChanged) return;
 
       [width, height] = this.runConstraints(width, height);
 
       // Set the appropriate state for this handler.
-      let newState = {};
+      const newState = {};
       if (handlerName === 'onResizeStart') {
         newState.resizing = true;
         newState.clientY = clientY;
@@ -164,21 +200,28 @@ export default class Resizable extends React.Component {
       } else {
         // Early return if no change after constraints
         if (width === this.state.width && height === this.state.height) return;
-        newState.clientY = clientY;
         newState.width = width;
         newState.height = height;
+        newState.clientY = clientY;
       }
 
-      this.setState(newState, () => {
-        this.props[handlerName] && this.props[handlerName](e, {node, size: {width, height}});
-      });
-
+      const hasCb = typeof this.props[handlerName] === 'function';
+      if (hasCb) {
+        if (typeof e.persist === 'function') e.persist();
+        this.setState(newState, () => this.props[handlerName](e, {node, size: {width, height}}));
+      } else {
+        this.setState(newState);
+      }
     };
   }
 
-  render(): React.Element {
-    let {width, height, resizeToNorth, ...p} = this.props;
-    let className = p.className ?
+  render(): React.Element<any> {
+    // eslint-disable-next-line no-unused-vars
+    const {children, draggableOpts, width, height, handleSize, resizeToNorth,
+        lockAspectRatio, axis, minConstraints, maxConstraints, onResize,
+        onResizeStop, onResizeStart, ...p} = this.props;
+
+    const className = p.className ?
       `${p.className} react-resizable`:
       'react-resizable';
 
@@ -186,15 +229,14 @@ export default class Resizable extends React.Component {
     // We are then defining its children as:
     // Its original children (resizable's child's children), and
     // A draggable handle.
-    return cloneElement(p.children, {
+    return cloneElement(children, {
       ...p,
       className,
       children: [
-        p.children.props.children,
+        children.props.children,
         <DraggableCore
-          {...p.draggableOpts}
+          {...draggableOpts}
           key="resizableHandle"
-          ref="draggable"
           onStop={this.resizeHandler('onResizeStop')}
           onStart={this.resizeHandler('onResizeStart')}
           onDrag={this.resizeHandler('onResize')}

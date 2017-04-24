@@ -29,6 +29,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 };*/
 /*:: type State = {
   resizing: boolean,
+  clientY: number,
   width: number, height: number,
   slackW: number, slackH: number
 };*/
@@ -68,7 +69,7 @@ var Resizable = function (_React$Component) {
     }
   };
 
-  Resizable.prototype.lockAspectRatio = function lockAspectRatio(width /*: number*/, height /*: number*/, aspectRatio /*: number*/) {
+  Resizable.prototype.lockAspectRatio = function lockAspectRatio(width /*: number*/, height /*: number*/, aspectRatio /*: number*/) /*: [number, number]*/ {
     height = width / aspectRatio;
     width = height * aspectRatio;
     return [width, height];
@@ -77,9 +78,10 @@ var Resizable = function (_React$Component) {
   // If you do this, be careful of constraints
 
 
-  Resizable.prototype.runConstraints = function runConstraints(width /*: number*/, height /*: number*/) {
-    var min = this.props.minConstraints;
-    var max = this.props.maxConstraints;
+  Resizable.prototype.runConstraints = function runConstraints(width /*: number*/, height /*: number*/) /*: [number, number]*/ {
+    var _ref = [this.props.minConstraints, this.props.maxConstraints],
+        min = _ref[0],
+        max = _ref[1];
 
 
     if (this.props.lockAspectRatio) {
@@ -90,16 +92,16 @@ var Resizable = function (_React$Component) {
 
     if (!min && !max) return [width, height];
 
-    var oldW = width;
-    var oldH = height;
+    var oldW = width,
+        oldH = height;
 
     // Add slack to the values used to calculate bound position. This will ensure that if
     // we start removing slack, the element won't react to it right away until it's been
     // completely removed.
 
-    var _state = this.state;
-    var slackW = _state.slackW;
-    var slackH = _state.slackH;
+    var _state = this.state,
+        slackW = _state.slackW,
+        slackH = _state.slackH;
 
     width += slackW;
     height += slackH;
@@ -131,13 +133,13 @@ var Resizable = function (_React$Component) {
    */
 
 
-  Resizable.prototype.resizeHandler = function resizeHandler(handlerName /*: string*/) {
+  Resizable.prototype.resizeHandler = function resizeHandler(handlerName /*: string*/) /*: Function*/ {
     var _this2 = this;
 
-    return function (e, _ref) {
-      var node = _ref.node;
-      var deltaX = _ref.deltaX;
-      var deltaY = _ref.deltaY;
+    return function (e, _ref2) {
+      var node = _ref2.node,
+          deltaX = _ref2.deltaX,
+          deltaY = _ref2.deltaY;
 
 
       var clientY = e.touches && e.touches.length ? e.touches[0].clientY : e.clientY;
@@ -156,7 +158,6 @@ var Resizable = function (_React$Component) {
       if (handlerName === 'onResize' && !widthChanged && !heightChanged) return;
 
       // Set the appropriate state for this handler.
-
       var _runConstraints = _this2.runConstraints(width, height);
 
       width = _runConstraints[0];
@@ -182,12 +183,12 @@ var Resizable = function (_React$Component) {
     };
   };
 
-  Resizable.prototype.render = function render() {
-    var _props = this.props;
-    var width = _props.width;
-    var height = _props.height;
-
-    var p = _objectWithoutProperties(_props, ['width', 'height']);
+  Resizable.prototype.render = function render() /*: React.Element*/ {
+    var _props = this.props,
+        width = _props.width,
+        height = _props.height,
+        resizeToNorth = _props.resizeToNorth,
+        p = _objectWithoutProperties(_props, ['width', 'height', 'resizeToNorth']);
 
     var className = p.className ? p.className + ' react-resizable' : 'react-resizable';
 
@@ -206,7 +207,7 @@ var Resizable = function (_React$Component) {
           onStart: this.resizeHandler('onResizeStart'),
           onDrag: this.resizeHandler('onResize')
         }),
-        _react2.default.createElement('span', { className: "react-resizable-handle" + (p.resizeToNorth ? " north" : "") })
+        _react2.default.createElement('span', { className: "react-resizable-handle" + (resizeToNorth ? " north" : "") })
       )]
     }));
   };

@@ -45,10 +45,10 @@ var ResizableBox = function (_React$Component) {
       width: _this.props.width,
       height: _this.props.height
     }, _this.onResize = function (event, _ref) {
-      var element = _ref.element;
-      var size = _ref.size;
-      var width = size.width;
-      var height = size.height;
+      var element = _ref.element,
+          size = _ref.size;
+      var width = size.width,
+          height = size.height;
 
 
       _this.setState(size, function () {
@@ -57,22 +57,21 @@ var ResizableBox = function (_React$Component) {
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
-  ResizableBox.prototype.render = function render() {
+  ResizableBox.prototype.render = function render() /*: React.Element*/ {
     // Basic wrapper around a Resizable instance.
     // If you use Resizable directly, you are responsible for updating the child component
     // with a new width and height.
-    var _props = this.props;
-    var handleSize = _props.handleSize;
-    var onResizeStart = _props.onResizeStart;
-    var onResizeStop = _props.onResizeStop;
-    var draggableOpts = _props.draggableOpts;
-    var minConstraints = _props.minConstraints;
-    var maxConstraints = _props.maxConstraints;
-    var lockAspectRatio = _props.lockAspectRatio;
-    var width = _props.width;
-    var height = _props.height;
-
-    var props = _objectWithoutProperties(_props, ['handleSize', 'onResizeStart', 'onResizeStop', 'draggableOpts', 'minConstraints', 'maxConstraints', 'lockAspectRatio', 'width', 'height']);
+    var _props = this.props,
+        handleSize = _props.handleSize,
+        onResizeStart = _props.onResizeStart,
+        onResizeStop = _props.onResizeStop,
+        draggableOpts = _props.draggableOpts,
+        minConstraints = _props.minConstraints,
+        maxConstraints = _props.maxConstraints,
+        lockAspectRatio = _props.lockAspectRatio,
+        width = _props.width,
+        height = _props.height,
+        props = _objectWithoutProperties(_props, ['handleSize', 'onResizeStart', 'onResizeStop', 'draggableOpts', 'minConstraints', 'maxConstraints', 'lockAspectRatio', 'width', 'height']);
 
     return _react2.default.createElement(
       _Resizable2.default,

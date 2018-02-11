@@ -8,6 +8,10 @@ var _react = require('react');
 
 var _react2 = _interopRequireDefault(_react);
 
+var _propTypes = require('prop-types');
+
+var _propTypes2 = _interopRequireDefault(_propTypes);
+
 var _reactDraggable = require('react-draggable');
 
 var _cloneElement = require('./cloneElement');
@@ -24,29 +28,34 @@ function _possibleConstructorReturn(self, call) { if (!self) { throw new Referen
 
 function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
 
-/*:: type Axis = 'both' | 'x' | 'y' | 'none';*/
-/*:: type Position = {
-
-};*/
+/*:: type Axis = 'both' | 'x' | 'y' | 'none'*/
+/*:: type Position = {}*/
 /*:: type State = {
   resizing: boolean,
   clientY: number,
-  width: number, height: number,
-  slackW: number, slackH: number
-};*/
+  width: number,
+  height: number,
+  slackW: number,
+  slackH: number
+}*/
 /*:: type DragCallbackData = {
   node: HTMLElement,
-  x: number, y: number,
-  deltaX: number, deltaY: number,
-  lastX: number, lastY: number
-};*/
+  x: number,
+  y: number,
+  deltaX: number,
+  deltaY: number,
+  lastX: number,
+  lastY: number
+}*/
 /*:: type ResizeCallbackData = {
   node: HTMLElement,
-  size: {width: number, height: number}
-};*/
-/*:: type EventWithClientY = SyntheticEvent & MouseEvent & SyntheticTouchEvent & {
-  clientY: number
+  size: { width: number, height: number }
 }*/
+/*:: type EventWithClientY = SyntheticEvent &
+  MouseEvent &
+  SyntheticTouchEvent & {
+    clientY: number
+  }*/
 /*:: export type Props = {
   children: React.Element<any>,
   width: number,
@@ -61,7 +70,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
   onResizeStart?: ?(e: SyntheticEvent, data: ResizeCallbackData) => any,
   onResize?: ?(e: SyntheticEvent, data: ResizeCallbackData) => any,
   draggableOpts?: ?Object
-};*/
+}*/
 
 var Resizable = function (_React$Component) {
   _inherits(Resizable, _React$Component);
@@ -77,8 +86,10 @@ var Resizable = function (_React$Component) {
 
     return _ret = (_temp = (_this = _possibleConstructorReturn(this, _React$Component.call.apply(_React$Component, [this].concat(args))), _this), _this.state = {
       resizing: false,
-      width: _this.props.width, height: _this.props.height,
-      slackW: 0, slackH: 0
+      width: _this.props.width,
+      height: _this.props.height,
+      slackW: 0,
+      slackH: 0
     }, _temp), _possibleConstructorReturn(_this, _ret);
   }
 
@@ -164,7 +175,6 @@ var Resizable = function (_React$Component) {
           deltaX = _ref2.deltaX,
           deltaY = _ref2.deltaY;
 
-
       var clientY = e.touches && e.touches.length ? e.touches[0].clientY : e.clientY;
 
       // Axis restrictions
@@ -183,6 +193,7 @@ var Resizable = function (_React$Component) {
       var widthChanged = width !== _this2.state.width,
           heightChanged = height !== _this2.state.height;
       if (handlerName === 'onResize' && !widthChanged && !heightChanged) return;
+
 
       // Set the appropriate state for this handler.
       var _runConstraints = _this2.runConstraints(width, height);
@@ -250,7 +261,7 @@ var Resizable = function (_React$Component) {
           onStart: this.resizeHandler('onResizeStart'),
           onDrag: this.resizeHandler('onResize')
         }),
-        _react2.default.createElement('span', { className: "react-resizable-handle" + (resizeToNorth ? " north" : "") })
+        _react2.default.createElement('span', { className: 'react-resizable-handle' + (resizeToNorth ? ' north' : '') })
       )]
     }));
   };
@@ -264,40 +275,40 @@ Resizable.propTypes = {
   //
 
   // Require that one and only one child be present.
-  children: _react.PropTypes.element.isRequired,
+  children: _propTypes2.default.element.isRequired,
 
   // Initial w/h
-  width: _react.PropTypes.number.isRequired,
-  height: _react.PropTypes.number.isRequired,
+  width: _propTypes2.default.number.isRequired,
+  height: _propTypes2.default.number.isRequired,
 
   //
   // Optional props
   //
 
   // If you change this, be sure to update your css
-  handleSize: _react.PropTypes.array,
+  handleSize: _propTypes2.default.array,
 
   // If true, will only allow width/height to move in lockstep
-  lockAspectRatio: _react.PropTypes.bool,
+  lockAspectRatio: _propTypes2.default.bool,
 
   // Restricts resizing to a particular axis (default: 'both')
   // 'both' - allows resizing by width or height
   // 'x' - only allows the width to be changed
   // 'y' - only allows the height to be changed
   // 'none' - disables resizing altogether
-  axis: _react.PropTypes.oneOf(['both', 'x', 'y', 'none']),
+  axis: _propTypes2.default.oneOf(['both', 'x', 'y', 'none']),
 
   // Min/max size
-  minConstraints: _react.PropTypes.arrayOf(_react.PropTypes.number),
-  maxConstraints: _react.PropTypes.arrayOf(_react.PropTypes.number),
+  minConstraints: _propTypes2.default.arrayOf(_propTypes2.default.number),
+  maxConstraints: _propTypes2.default.arrayOf(_propTypes2.default.number),
 
   // Callbacks
-  onResizeStop: _react.PropTypes.func,
-  onResizeStart: _react.PropTypes.func,
-  onResize: _react.PropTypes.func,
+  onResizeStop: _propTypes2.default.func,
+  onResizeStart: _propTypes2.default.func,
+  onResize: _propTypes2.default.func,
 
   // These will be passed wholesale to react-draggable's DraggableCore
-  draggableOpts: _react.PropTypes.object
+  draggableOpts: _propTypes2.default.object
 };
 Resizable.defaultProps = {
   handleSize: [20, 20],
